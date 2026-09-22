@@ -96,14 +96,4 @@ Full per-instance results: [`results/schneider_benchmark_results.csv`](results/s
 
 98 instances from 29 daily Amazon datasets (20.07.2018 – 17.08.2018), with 100 to 1,769 customers. Gurobi was run with a time limit as an exact-solver reference.
 
-| Size group | Instances | Gurobi found a solution | DRL-LS avg. vehicles | DRL-LS avg. distance |
-|---|---|---|---|---|
-| 100 customers | 29 | 9 | 1.03 | 56.9 |
-| 101 – 500 | 28 | 9 | 1.43 | 186.2 |
-| 501 – 1,000 | 24 | 6 | 2.50 | 517.3 |
-| > 1,000 | 17 | 5 | 3.94 | 913.8 |
-| **Total** | **98** | **29** | | |
-
-DRL-LS returns a feasible solution for all 98 instances, while Gurobi finds no solution within the time limit for 69 of them.
-
 Full per-instance results: [`results/amazon_results.csv`](results/amazon_results.csv)
