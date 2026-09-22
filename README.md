@@ -12,6 +12,9 @@ The method is designed for **large-scale instances**. Beyond the classical Schne
 ├── data/
 │   ├── schneider/     # Schneider et al. (2014) benchmark instances
 │   └── amazon/        # Processed Amazon Last Mile EVRPTW instances
+├── results/
+│   ├── schneider_benchmark_results.csv
+│   └── amazon_results.csv
 └── README.md
 ```
 
@@ -73,7 +76,34 @@ The resulting test set covers **29 daily instances** from **20.07.2018 to 17.08.
 
 ## Results
 
-| Instance set | Sizes | Comparison |
-|---|---|---|
-| Schneider et al. (2014) | 100 customers | Best-known solutions from SSG, GS, HPH, KÇ |
-| Amazon Last Mile | 100 – ~1,769 customers | Large-scale evaluation |
+Each instance is solved 10 times independently and the best solution is reported. The objective is hierarchical: number of vehicles first, then total distance.
+
+### Schneider et al. (2014) Benchmarks (100 customers)
+
+Gap (%) is measured against the best-known solution (BKS) among all compared papers.
+
+| Algorithm | Total vehicles | Δ vehicles vs. BKS | Avg. distance gap (same-vehicle instances) |
+|---|---|---|---|
+| VNS/TS — Schneider et al. (2014) | 441 | +1 | 0.98% |
+| ALNS — Goeke & Schneider (2015) | 440 | 0 | 0.03% |
+| ALNS+LS — Hiermann et al. (2016) | 442 | +2 | 1.19% |
+| ALNS-PR — Keskin & Çatay (2016) | 450 | +10 | −0.16% |
+| **DRL-LS (ours)** | **448** | **+8** | **1.96%** |
+
+Full per-instance results: [`results/schneider_benchmark_results.csv`](results/schneider_benchmark_results.csv)
+
+### Amazon Last Mile Instances
+
+98 instances from 29 daily Amazon datasets (20.07.2018 – 17.08.2018), with 100 to 1,769 customers. Gurobi was run with a time limit as an exact-solver reference.
+
+| Size group | Instances | Gurobi found a solution | DRL-LS avg. vehicles | DRL-LS avg. distance |
+|---|---|---|---|---|
+| 100 customers | 29 | 9 | 1.03 | 56.9 |
+| 101 – 500 | 28 | 9 | 1.43 | 186.2 |
+| 501 – 1,000 | 24 | 6 | 2.50 | 517.3 |
+| > 1,000 | 17 | 5 | 3.94 | 913.8 |
+| **Total** | **98** | **29** | | |
+
+DRL-LS returns a feasible solution for all 98 instances, while Gurobi finds no solution within the time limit for 69 of them.
+
+Full per-instance results: [`results/amazon_results.csv`](results/amazon_results.csv)
