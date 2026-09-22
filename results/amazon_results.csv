@@ -1,4 +1,4 @@
-instance,date,n_customers,gurobi_vehicles,gurobi_distance_km,gurobi_mip_gap_pct,gurobi_status,drlls_vehicles,drlls_distance_km
+instance,date,n_customers,gurobi_vehicles,gurobi_distance_km,gurobi_mip_gap_pct,gurobi_status,DRL-LS_vehicles,DRL-LS_distance_km
 2018-07-20_100cust,2018-07-20,100,3,88.43,68,incumbent,1,29.56
 2018-07-20_183cust,2018-07-20,183,,,,no incumbent (time limit),1,38.05
 2018-07-21_100cust,2018-07-21,100,1,146.35,19,incumbent,1,98.72
