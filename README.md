@@ -94,6 +94,6 @@ Full per-instance results: [`results/schneider_benchmark_results.csv`](results/s
 
 ### Amazon Last Mile Instances
 
-98 instances from 29 daily Amazon datasets (20.07.2018 – 17.08.2018), with 100 to 1,769 customers. Gurobi was run with a time limit as an exact-solver reference.
+98 instances from 29 daily Amazon datasets (20.07.2018 – 17.08.2018), with 100 to 1,769 customers.
 
 Full per-instance results: [`results/amazon_results.csv`](results/amazon_results.csv)
